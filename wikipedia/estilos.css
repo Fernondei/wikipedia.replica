@@ -1,0 +1,374 @@
+/* =========================================
+   UVGpedia - estilos
+   Tema oscuro, acentos en verde claro
+   Toda la interactividad (elegir articulo,
+   tamaño de texto, ancho, color) se logra
+   con radios + :has() en CSS puro, sin JS.
+   ========================================= */
+
+:root {
+  --bg: #0d1117;
+  --bg-elev: #161b22;
+  --bg-hover: #1e2530;
+  --texto: #ffffff;
+  --texto-suave: #b9c3ce;
+  --borde: #2a313c;
+  --acento: #6fdc8c;
+  --acento-oscuro: #3ea25c;
+}
+
+/* Los radios que controlan el articulo se ocultan siempre */
+.oculto {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+  background-color: var(--bg);
+  color: var(--texto);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- Encabezado ---------- */
+header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--borde);
+  background-color: var(--bg-elev);
+  flex-wrap: wrap;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: var(--acento);
+  color: #05170d;
+  font-weight: bold;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulo-texto h1 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.titulo-texto p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--texto-suave);
+}
+
+/* ---------- Buscador (dropdown) ---------- */
+.buscador {
+  position: relative;
+  display: flex;
+  gap: 8px;
+}
+
+.buscador-caja {
+  min-width: 260px;
+  padding: 8px 14px;
+  border-radius: 20px 0 0 20px;
+  background-color: var(--bg);
+  border: 1px solid var(--borde);
+  color: var(--texto-suave);
+  cursor: pointer;
+}
+
+.buscador-boton {
+  padding: 8px 16px;
+  border-radius: 0 20px 20px 0;
+  background-color: var(--acento);
+  color: #05170d;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buscador-opciones {
+  display: none;
+  position: absolute;
+  top: 42px;
+  left: 0;
+  width: 100%;
+  min-width: 260px;
+  background-color: var(--bg-elev);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+body:has(#toggle-buscador:checked) .buscador-opciones {
+  display: block;
+}
+
+.buscador-opciones label {
+  display: block;
+  padding: 8px 14px;
+  color: var(--texto);
+  cursor: pointer;
+  border-bottom: 1px solid var(--borde);
+}
+
+.buscador-opciones label:last-child {
+  border-bottom: none;
+}
+
+.buscador-opciones label:hover {
+  background-color: var(--bg-hover);
+}
+
+/* ---------- Layout de 3 columnas ---------- */
+.contenido {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* ---------- Sidebar de temas (izquierda) ---------- */
+.sidebar-temas {
+  width: 230px;
+  flex-shrink: 0;
+  padding: 16px;
+  border-right: 1px solid var(--borde);
+  min-height: 90vh;
+  transition: width 0.15s ease;
+}
+
+.sidebar-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--acento);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.flecha {
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+/* Sidebar cerrado: se oculta la lista de temas y el texto,
+   el sidebar se angosta y el articulo central gana ese espacio */
+body:has(#toggle-sidebar:checked) .sidebar-temas {
+  width: 40px;
+  padding: 16px 8px;
+}
+
+body:has(#toggle-sidebar:checked) .lista-temas {
+  display: none;
+}
+
+body:has(#toggle-sidebar:checked) .toggle-texto {
+  display: none;
+}
+
+body:has(#toggle-sidebar:checked) .flecha {
+  transform: rotate(-90deg);
+}
+
+.item-tema {
+  display: block;
+  padding: 8px 6px;
+  color: var(--texto-suave);
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.item-tema:hover {
+  background-color: var(--bg-hover);
+  color: var(--texto);
+}
+
+/* ---------- Articulo central ---------- */
+.articulo-central {
+  flex: 1;
+  min-width: 0;
+  max-width: 700px;
+  padding: 24px;
+}
+
+.articulo {
+  display: none;
+}
+
+.articulo h2 {
+  border-bottom: 1px solid var(--borde);
+  padding-bottom: 8px;
+}
+
+.articulo h3 {
+  color: var(--acento);
+  margin-top: 22px;
+}
+
+.articulo .fuente {
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid var(--borde);
+}
+
+.articulo .fuente a {
+  color: var(--acento);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.articulo .fuente a:hover {
+  text-decoration: underline;
+}
+
+.articulo img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 12px 0;
+  background-color: var(--bg-elev);
+}
+
+.articulo p {
+  color: var(--texto-suave);
+  line-height: 1.6;
+}
+
+/* Mostrar solo el articulo que coincide con el tema seleccionado */
+body:has(#tema1:checked) #articulo-1,
+body:has(#tema2:checked) #articulo-2,
+body:has(#tema3:checked) #articulo-3,
+body:has(#tema4:checked) #articulo-4,
+body:has(#tema5:checked) #articulo-5,
+body:has(#tema6:checked) #articulo-6,
+body:has(#tema7:checked) #articulo-7,
+body:has(#tema8:checked) #articulo-8,
+body:has(#tema9:checked) #articulo-9,
+body:has(#tema10:checked) #articulo-10 {
+  display: block;
+}
+
+/* Resaltar en el sidebar el tema activo */
+body:has(#tema1:checked) label[for="tema1"],
+body:has(#tema2:checked) label[for="tema2"],
+body:has(#tema3:checked) label[for="tema3"],
+body:has(#tema4:checked) label[for="tema4"],
+body:has(#tema5:checked) label[for="tema5"],
+body:has(#tema6:checked) label[for="tema6"],
+body:has(#tema7:checked) label[for="tema7"],
+body:has(#tema8:checked) label[for="tema8"],
+body:has(#tema9:checked) label[for="tema9"],
+body:has(#tema10:checked) label[for="tema10"] {
+  background-color: var(--bg-hover);
+  color: var(--acento);
+  font-weight: bold;
+}
+
+/* ---------- Panel de apariencia (derecha) ---------- */
+.panel-apariencia {
+  width: 220px;
+  flex-shrink: 0;
+  padding: 16px;
+  border-left: 1px solid var(--borde);
+  min-height: 90vh;
+  font-size: 0.85rem;
+}
+
+.apariencia-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.apariencia-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.apariencia-header span {
+  color: var(--acento);
+  font-size: 0.75rem;
+  cursor: default;
+}
+
+.panel-apariencia h4 {
+  color: var(--texto-suave);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin: 14px 0 6px;
+}
+
+.opcion-radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.opcion-radio input[type="radio"] {
+  accent-color: var(--acento);
+}
+
+.opcion-radio label {
+  color: var(--texto-suave);
+}
+
+/* ---------- Tamaño de texto (Apariencia) ---------- */
+body:has(#texto-pequeno:checked) .articulo-central {
+  font-size: 0.85rem;
+}
+
+body:has(#texto-grande:checked) .articulo-central {
+  font-size: 1.2rem;
+}
+
+/* ---------- Anchura (Apariencia) ---------- */
+body:has(#ancho-ancho:checked) .articulo-central {
+  max-width: 100%;
+}
+
+/* ---------- Color: Claro (Apariencia) ---------- */
+body:has(#color-claro:checked) {
+  --bg: #ffffff;
+  --bg-elev: #f1f3f5;
+  --bg-hover: #e9ecef;
+  --texto: #14181c;
+  --texto-suave: #495057;
+  --borde: #dee2e6;
+}
+
+/* ---------- Color: Automático (sigue el modo del sistema) ---------- */
+@media (prefers-color-scheme: light) {
+  body:has(#color-automatico:checked) {
+    --bg: #ffffff;
+    --bg-elev: #f1f3f5;
+    --bg-hover: #e9ecef;
+    --texto: #14181c;
+    --texto-suave: #495057;
+    --borde: #dee2e6;
+  }
+}

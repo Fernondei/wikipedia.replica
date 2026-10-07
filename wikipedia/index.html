@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UVGpedia</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- ======================================================
+       Radios ocultos: controlan qué articulo se muestra.
+       Tanto el sidebar como el buscador (dropdown) usan
+       labels "for" apuntando a estos mismos radios, por eso
+       ambos controlan lo mismo sin usar JavaScript.
+       ====================================================== -->
+  <input type="radio" name="tema" id="tema1" class="oculto" checked>
+  <input type="radio" name="tema" id="tema2" class="oculto">
+  <input type="radio" name="tema" id="tema3" class="oculto">
+  <input type="radio" name="tema" id="tema4" class="oculto">
+  <input type="radio" name="tema" id="tema5" class="oculto">
+  <input type="radio" name="tema" id="tema6" class="oculto">
+  <input type="radio" name="tema" id="tema7" class="oculto">
+  <input type="radio" name="tema" id="tema8" class="oculto">
+  <input type="radio" name="tema" id="tema9" class="oculto">
+  <input type="radio" name="tema" id="tema10" class="oculto">
+
+  <!-- Checkbox oculto: abre/cierra el dropdown del buscador -->
+  <input type="checkbox" id="toggle-buscador" class="oculto">
+
+  <!-- Checkbox oculto: abre/cierra el sidebar de temas -->
+  <input type="checkbox" id="toggle-sidebar" class="oculto">
+
+  <!-- ======================================================
+       Encabezado: logo + titulo, y el buscador (dropdown)
+       ====================================================== -->
+  <header>
+    <div class="marca">
+      <div class="logo">U</div>
+      <div class="titulo-texto">
+        <h1>UVGpedia</h1>
+        <p>La enciclopedia libre (de práctica)</p>
+      </div>
+    </div>
+
+    <div class="buscador">
+      <label for="toggle-buscador" class="buscador-caja">Buscar en UVGpedia</label>
+      <label for="toggle-buscador" class="buscador-boton">Buscar</label>
+
+      <div class="buscador-opciones">
+        <label for="tema1">Cultura japonesa</label>
+        <label for="tema2">El anime</label>
+        <label for="tema3">La Segunda Guerra Mundial</label>
+        <label for="tema4">La Primera Guerra Mundial</label>
+        <label for="tema5">La música electrónica</label>
+        <label for="tema6">El dibujo digital</label>
+        <label for="tema7">Estado de Ohio, Estados Unidos</label>
+        <label for="tema8">País de Guatemala</label>
+        <label for="tema9">Brainrot</label>
+        <label for="tema10">El trash metal</label>
+      </div>
+    </div>
+  </header>
+
+  <div class="contenido">
+
+    <!-- ======================================================
+         Sidebar izquierdo: colapsable con una flechita.
+         Abierto: se ve la lista de temas.
+         Cerrado: se oculta la lista y el articulo (centro)
+         gana ese espacio.
+         ====================================================== -->
+    <aside class="sidebar-temas">
+      <label for="toggle-sidebar" class="sidebar-toggle">
+        <span class="flecha">▾</span>
+        <span class="toggle-texto">Temas</span>
+      </label>
+
+      <div class="lista-temas">
+        <label for="tema1" class="item-tema">Cultura japonesa</label>
+        <label for="tema2" class="item-tema">El anime</label>
+        <label for="tema3" class="item-tema">La Segunda Guerra Mundial</label>
+        <label for="tema4" class="item-tema">La Primera Guerra Mundial</label>
+        <label for="tema5" class="item-tema">La música electrónica</label>
+        <label for="tema6" class="item-tema">El dibujo digital</label>
+        <label for="tema7" class="item-tema">Estado de Ohio, Estados Unidos</label>
+        <label for="tema8" class="item-tema">País de Guatemala</label>
+        <label for="tema9" class="item-tema">Brainrot</label>
+        <label for="tema10" class="item-tema">El trash metal</label>
+      </div>
+    </aside>
+
+    <!-- ======================================================
+         Articulo central: solo se muestra el que coincide
+         con el radio "tema" seleccionado (ver estilos.css)
+         ====================================================== -->
+    <main class="articulo-central">
+
+      <article id="articulo-1" class="articulo">
+        <h2>Cultura japonesa</h2>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Manekineko1003.jpg" alt="Maneki-neko, figura tradicional japonesa">
+        <p>La cultura japonesa combina tradiciones muy antiguas con una identidad moderna muy particular. Ceremonias como la del té, el cultivo de jardines zen y las festividades conocidas como matsuri conviven con una vida urbana marcada por la tecnología y el diseño. La cortesía, el respeto por los mayores y el cuidado por los detalles son valores que se reflejan en casi cualquier aspecto de la vida diaria, desde la forma de saludar hasta la manera de preparar los alimentos.</p>
+        <p>Elementos como el kimono, la caligrafía (shodo) o figuras como el maneki-neko (el "gato de la suerte") se han convertido en símbolos reconocidos en todo el mundo, incluso fuera de Japón.</p>
+        <h3>Religión y vida cotidiana</h3>
+        <p>El sintoísmo y el budismo conviven sin mayor conflicto en la vida diaria japonesa; es común que una misma persona participe de rituales sintoístas (como visitar un santuario en año nuevo) y también de ceremonias budistas (como los funerales). Esta convivencia refleja una actitud práctica hacia la religión, más ligada a la tradición y la comunidad que a un dogma estricto.</p>
+        <p class="fuente"><a href="https://es.wikipedia.org/wiki/Cultura_de_Jap%C3%B3n" target="_blank" rel="noopener">Leer el artículo completo en Wikipedia →</a></p>
+      </article>
+
+      <article id="articulo-2" class="articulo">
+        <h2>El anime</h2>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Anime_Milwaukee_030826,_Friend_Group_10.1.jpg" alt="Grupo de fans en una convención de anime">
+        <p>El anime es el nombre que reciben las series y películas de animación producidas en Japón. Se caracteriza por una gran variedad de estilos visuales y por abarcar prácticamente cualquier género: acción, romance, ciencia ficción, comedia o drama. A diferencia de la animación pensada solo para público infantil en otros países, el anime suele tener historias dirigidas también a adolescentes y adultos.</p>
+        <p>Alrededor del anime ha crecido una cultura muy activa de fans, que incluye el cosplay (disfrazarse de personajes), las convenciones dedicadas al tema y comunidades en línea que comparten arte, reseñas y teorías sobre las historias.</p>
+        <h3>Relación con el manga</h3>
+        <p>Buena parte del anime está basado en manga (cómics japoneses), que suelen publicarse primero por capítulos y, si tienen éxito, más adelante se adaptan a series animadas. Estudios como los que producen anime suelen trabajar bajo calendarios de emisión muy exigentes, lo que ha influido en el estilo visual característico del medio.</p>
+        <p class="fuente"><a href="https://es.wikipedia.org/wiki/Anime" target="_blank" rel="noopener">Leer el artículo completo en Wikipedia →</a></p>
+      </article>
+
+      <article id="articulo-3" class="articulo">
+        <h2>La Segunda Guerra Mundial</h2>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Raising_the_Flag_on_Iwo_Jima,_larger.jpeg" alt="Izamiento de la bandera en Iwo Jima, 1945">
+        <p>La Segunda Guerra Mundial (1939-1945) fue un conflicto que involucró a la mayoría de los países del mundo, divididos principalmente entre los Aliados y las potencias del Eje. Comenzó con la invasión de Polonia y se extendió por Europa, África, Asia y el Pacífico, convirtiéndose en el conflicto más mortífero de la historia.</p>
+        <p>El final de la guerra trajo consigo cambios profundos en el mapa político mundial, la creación de organismos como la ONU, y dejó una huella duradera en la memoria colectiva a través de eventos como el Holocausto y el uso de armas nucleares.</p>
+        <h3>El frente del Pacífico</h3>
+        <p>Además del conflicto en Europa, la guerra tuvo un frente muy activo en el océano Pacífico, donde Estados Unidos y sus aliados enfrentaron a Japón en una serie de batallas navales y terrestres, como la de Iwo Jima. Esta fase de la guerra terminó tras el lanzamiento de las bombas atómicas sobre Hiroshima y Nagasaki en agosto de 1945.</p>
+        <p class="fuente"><a href="https://es.wikipedia.org/wiki/Segunda_Guerra_Mundial" target="_blank" rel="noopener">Leer el artículo completo en Wikipedia →</a></p>
+      </article>
+
+      <article id="articulo-4" class="articulo">
+        <h2>La Primera Guerra Mundial</h2>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cheshire_Regiment_trench_Somme_1916.jpg" alt="Trinchera británica durante la batalla del Somme, 1916">
+        <p>La Primera Guerra Mundial (1914-1918) enfrentó principalmente a las potencias centrales contra los países aliados, en gran parte a raíz de tensiones territoriales, alianzas militares y el asesinato del archiduque Francisco Fernando de Austria. Se caracterizó por el uso masivo de trincheras, especialmente en el frente occidental, donde los avances eran lentos y las pérdidas humanas muy elevadas.</p>
+        <p>El conflicto introdujo nuevas tecnologías bélicas, como el gas venenoso, los tanques y la aviación militar, y terminó con la firma del Tratado de Versalles, que redefinió fronteras y sembró tensiones que años más tarde contribuirían a un nuevo conflicto mundial.</p>
+        <h3>La guerra de trincheras</h3>
+        <p>Uno de los rasgos más conocidos del conflicto fue la guerra de trincheras: largas líneas de zanjas fortificadas desde las que los ejércitos se enfrentaban durante meses por apenas unos metros de terreno. Batallas como la del Somme se volvieron símbolo del alto costo humano de esta forma de combate.</p>
+        <p class="fuente"><a href="https://es.wikipedia.org/wiki/Primera_Guerra_Mundial" target="_blank" rel="noopener">Leer el artículo completo en Wikipedia →</a></p>
+      </article>
+
+      <article id="articulo-5" class="articulo">
+        <h2>La música electrónica</h2>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Armin_van_Buuren_2017_(2).jpg" alt="DJ de música electrónica en un festival">
+        <p>La música electrónica es un género musical creado principalmente con sintetizadores, cajas de ritmos y software de producción, en lugar de instrumentos acústicos tradicionales. Su origen se remonta a experimentos con sonido del siglo XX, pero se popularizó fuertemente a partir de los años 80 y 90 con subgéneros como el house, el techno y el trance.</p>
+        <p>Hoy en día es una de las escenas musicales más grandes del mundo, con festivales masivos, DJs reconocidos internacionalmente y una fuerte presencia en la cultura de clubes y fiestas.</p>
+        <h3>Subgéneros principales</h3>
+        <p>Dentro de la música electrónica existen decenas de subgéneros con identidad propia, como el techno (más repetitivo e industrial), el house (con raíces en el disco y el soul), el trance (melódico y atmosférico) o el dubstep (con bajos pesados y ritmos entrecortados). Cada uno tiene sus propios festivales, artistas emblemáticos y comunidades de fans.</p>
+        <p class="fuente"><a href="https://es.wikipedia.org/wiki/M%C3%BAsica_electr%C3%B3nica" target="_blank" rel="noopener">Leer el artículo completo en Wikipedia →</a></p>
+      </article>
+
+      <article id="articulo-6" class="articulo">
+        <h2>El dibujo digital</h2>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wacom_Pen-tablet.jpg" alt="Tableta gráfica usada para dibujo digital">
+        <p>El dibujo digital es la creación de ilustraciones utilizando herramientas como tabletas gráficas, lápices ópticos y programas de edición de imágenes, en lugar de papel y lápiz tradicionales. Permite deshacer cambios fácilmente, trabajar por capas y experimentar con colores y texturas sin gastar materiales físicos.</p>
+        <p>Esta técnica es ampliamente usada en ilustración, diseño de personajes, cómics, animación y concept art, y ha facilitado que muchos artistas compartan y vendan su trabajo directamente en internet.</p>
+        <h3>Herramientas más usadas</h3>
+        <p>Entre los programas más populares para dibujo digital están Photoshop, Clip Studio Paint y Procreate, cada uno con pinceles y funciones pensadas específicamente para ilustración. En cuanto a hardware, las tabletas gráficas (con o sin pantalla integrada) siguen siendo la herramienta principal de la mayoría de artistas digitales profesionales.</p>
+        <p class="fuente"><a href="https://es.wikipedia.org/wiki/Arte_digital" target="_blank" rel="noopener">Leer el artículo completo en Wikipedia →</a></p>
+      </article>
+
+      <article id="articulo-7" class="articulo">
+        <h2>Estado de Ohio, Estados Unidos</h2>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Ohio.svg" alt="Bandera del estado de Ohio">
+        <p>Ohio es un estado ubicado en la región del medio oeste de Estados Unidos. Fue admitido como el estado número 17 de la Unión en 1803 y su capital es Columbus. Su bandera es la única de todos los estados que no tiene forma rectangular, sino de gallardete (burgee), con un diseño en rojo, blanco y azul.</p>
+        <p>La economía de Ohio combina manufactura, agricultura y servicios, y el estado también es conocido por su papel histórico en la industria automotriz y aeroespacial de Estados Unidos.</p>
+        <h3>Ciudades principales</h3>
+        <p>Además de Columbus, otras ciudades importantes de Ohio son Cleveland, Cincinnati y Toledo. Ohio también es conocido por ser el estado natal de varios astronautas, incluyendo a Neil Armstrong y John Glenn, lo que le ha dado el apodo no oficial de "cuna de los aviadores y astronautas".</p>
+        <p class="fuente"><a href="https://es.wikipedia.org/wiki/Ohio" target="_blank" rel="noopener">Leer el artículo completo en Wikipedia →</a></p>
+      </article>
+
+      <article id="articulo-8" class="articulo">
+        <h2>País de Guatemala</h2>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pyramid,_Tikal,_Guatemala.jpg" alt="Pirámide maya en Tikal, Guatemala">
+        <p>Guatemala es un país de América Central conocido por su fuerte herencia maya, tanto en su población actual como en sitios arqueológicos como Tikal, una de las ciudades más importantes de esa civilización. Su territorio combina volcanes, selvas tropicales y ciudades coloniales como Antigua Guatemala.</p>
+        <p>Es un país multicultural, en el que conviven el español y numerosos idiomas mayas, además de una gran variedad de tradiciones, textiles y gastronomía propia de cada región.</p>
+        <h3>Geografía y naturaleza</h3>
+        <p>Guatemala tiene más de 30 volcanes, varios de ellos activos, como el Volcán de Fuego y el Pacaya. Esta actividad volcánica, junto con su ubicación tropical, le da al país una gran variedad de ecosistemas, desde selvas húmedas en el norte (Petén) hasta zonas montañosas más frías en el altiplano occidental.</p>
+        <p class="fuente"><a href="https://es.wikipedia.org/wiki/Guatemala" target="_blank" rel="noopener">Leer el artículo completo en Wikipedia →</a></p>
+      </article>
+
+      <article id="articulo-9" class="articulo">
+        <h2>Brainrot</h2>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/CellPhoneMail.jpg" alt="Ilustración de un teléfono inteligente">
+        <p>"Brainrot" es un término coloquial de internet que se usa, generalmente en tono de broma, para describir el efecto de consumir grandes cantidades de contenido corto y de baja calidad en redes sociales, como videos cortos, memes o tendencias absurdas. La palabra significa literalmente "pudrición del cerebro" y se usa para referirse al hábito de pasar mucho tiempo haciendo scroll sin un propósito claro.</p>
+        <p>Aunque nació como un chiste dentro de comunidades en línea, el término se volvió tan popular que llegó a usarse en conversaciones cotidianas para describir el exceso de tiempo frente a la pantalla del celular.</p>
+        <h3>Reconocimiento reciente</h3>
+        <p>La palabra ganó tanta popularidad que la editorial del Diccionario Oxford la eligió como su "Palabra del Año 2024", señalando que su uso había aumentado más de un 200% en solo doce meses, sobre todo entre generaciones jóvenes muy activas en redes sociales.</p>
+        <p class="fuente"><a href="https://en.wikipedia.org/wiki/Brain_rot" target="_blank" rel="noopener">Leer el artículo completo en Wikipedia (inglés) →</a></p>
+      </article>
+
+      <article id="articulo-10" class="articulo">
+        <h2>El trash metal</h2>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Electric_guitars.jpg" alt="Guitarras eléctricas">
+        <p>El trash metal (también escrito thrash metal) es un subgénero del heavy metal que surgió a principios de los años 80, caracterizado por tempos muy rápidos, riffs de guitarra agresivos y una batería intensa. Se le considera una fusión entre la velocidad del punk y la técnica del metal tradicional.</p>
+        <p>Bandas de esta escena influyeron fuertemente en el desarrollo posterior del metal extremo, y el género se distingue por letras que suelen abordar temas como la guerra, la injusticia social o la crítica política.</p>
+        <h3>Los "Cuatro Grandes"</h3>
+        <p>Dentro del thrash metal se suele hablar de los "Cuatro Grandes" (Big Four), un grupo de bandas estadounidenses consideradas las más influyentes en popularizar el género a nivel mundial durante los años 80. Su estilo sentó las bases de muchos subgéneros posteriores del metal extremo.</p>
+        <p class="fuente"><a href="https://es.wikipedia.org/wiki/Thrash_metal" target="_blank" rel="noopener">Leer el artículo completo en Wikipedia →</a></p>
+      </article>
+
+    </main>
+
+    <!-- ======================================================
+         Panel de apariencia (igual que Wikipedia), con
+         radios reales y visibles. Controla texto/ancho/color
+         mediante :has() en CSS, sin JavaScript.
+         ====================================================== -->
+    <aside class="panel-apariencia">
+      <div class="apariencia-header">
+        <h3>Apariencia</h3>
+        <span>ocultar</span>
+      </div>
+
+      <h4>Texto</h4>
+      <div class="opcion-radio">
+        <input type="radio" name="tamano" id="texto-pequeno">
+        <label for="texto-pequeno">Pequeño</label>
+      </div>
+      <div class="opcion-radio">
+        <input type="radio" name="tamano" id="texto-estandar" checked>
+        <label for="texto-estandar">Estándar</label>
+      </div>
+      <div class="opcion-radio">
+        <input type="radio" name="tamano" id="texto-grande">
+        <label for="texto-grande">Grande</label>
+      </div>
+
+      <h4>Anchura</h4>
+      <div class="opcion-radio">
+        <input type="radio" name="ancho" id="ancho-estandar" checked>
+        <label for="ancho-estandar">Estándar</label>
+      </div>
+      <div class="opcion-radio">
+        <input type="radio" name="ancho" id="ancho-ancho">
+        <label for="ancho-ancho">Ancho</label>
+      </div>
+
+      <h4>Color</h4>
+      <div class="opcion-radio">
+        <input type="radio" name="color" id="color-automatico">
+        <label for="color-automatico">Automático</label>
+      </div>
+      <div class="opcion-radio">
+        <input type="radio" name="color" id="color-claro">
+        <label for="color-claro">Claro</label>
+      </div>
+      <div class="opcion-radio">
+        <input type="radio" name="color" id="color-oscuro" checked>
+        <label for="color-oscuro">Oscuro</label>
+      </div>
+    </aside>
+
+  </div>
+
+</body>
+</html>
